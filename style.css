@@ -4,7 +4,8 @@
   padding: 0px;
   list-style: none;
 }
-
+html[data-theme="dark"] {
+}
 /* Fonts */
 :root {
   --color-primary1: #005752;
