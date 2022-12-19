@@ -4,8 +4,7 @@
   padding: 0px;
   list-style: none;
 }
-html[data-theme="dark"] {
-}
+
 /* Fonts */
 :root {
   --color-primary1: #005752;
@@ -17,6 +16,17 @@ html[data-theme="dark"] {
   --color-accent2: #571e00;
   --font-basecolor-dark: #111;
   --font-basecolor-light: #eee;
+}
+:root[data-theme="dark"] {
+  --color-primary1: #012a28;
+  --color-primary2: #00d6cb;
+  --color-primary3: #012a27;
+  --color-secondary1: #009f97;
+  --color-secondary2: #015551;
+  --color-accent1: #862f00;
+  --color-accent2: #431700;
+  --font-basecolor-dark: #eee;
+  --font-basecolor-light: #111;
 }
 html {
   font-family: "Poppins", sans-serif;
@@ -95,6 +105,47 @@ input[type="text"] {
   background-color: #eee;
   border-color: #ddd;
   color: #222;
+}
+input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 100px;
+  height: 50px;
+  background: black;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+label:after {
+  content: "";
+  position: absolute;
+  top: 2.5px;
+  left: 5px;
+  width: 45px;
+  height: 45px;
+  background: var(--color-accent1);
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+input:checked + label {
+  background: white;
+}
+
+input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+label:active:after {
+  width: 130px;
 }
 
 /* Menu */
@@ -221,6 +272,7 @@ header button {
   padding: 2rem;
   align-items: center;
   justify-content: space-around;
+  background-color: var(--font-basecolor-light);
 }
 
 .highlight div {
@@ -230,19 +282,7 @@ header button {
 .highlight div h2 {
   font-size: 5.005rem;
   line-height: 6rem;
-  color: var(--color-primary3);
-}
-
-.dark {
-  background-color: #222;
-}
-
-.dark h2 {
-  color: #eee;
-}
-
-.dark a {
-  color: #ccc;
+  color: var(--color-primary2);
 }
 
 /* request section */
@@ -252,9 +292,12 @@ header button {
   padding: 2rem;
   align-items: center;
   justify-content: space-around;
-  background-color: #ccc;
+  background-color: var(--font-basecolor-light);
 }
-
+#request div h2,
+#request div p {
+  color: var(--font-basecolor-dark);
+}
 #request div {
   width: 50vw;
   min-width: 300px;
@@ -309,4 +352,6 @@ footer section div {
     font-size: 3.052rem;
     line-height: 3.5rem;
   }
+}
+@media (prefers-color-scheme: dark) {
 }
